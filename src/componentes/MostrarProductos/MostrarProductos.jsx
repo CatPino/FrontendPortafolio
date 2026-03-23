@@ -32,11 +32,12 @@ export function ModalProductos({ categoriaNombre }) {
           );
 
           if (categoria) {
-            const filtrados = dataProd.filter(
-              (p) =>
-                p.categoria?.id === categoria.id ||
-                p.categoria_id === categoria.id
-            );
+              const filtrados = dataProd.filter(
+          (p) =>
+            p.categoria?.id === categoria.id ||
+            p.categoriaId === categoria.id ||
+            p.categoria_id === categoria.id
+        );
             setProductos(filtrados);
           } else {
             setProductos([]);

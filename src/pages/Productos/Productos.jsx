@@ -6,15 +6,16 @@ export function Productos() {
     <>
       <div className="container my-5">
         <h1>Conoce todos nuestros productos</h1>
-        <h2 class="mb-4">
-        Dale a tu outfit un toque gótico auténtico. Cada prenda está diseñada para expresar tu
-        personalidad con fuerza, combinando lo clásico y lo alternativo en cada detalle.
+        <h2 className="mb-4">
+          Descubre nuestra selección de productos de cuidado personal, facial,
+          corporal y fragancias, pensados para acompañarte en tu rutina diaria.
         </h2>
-        <ModalProductos categoriaNombre="Poleras" />
-        <ModalProductos categoriaNombre="Calzas" />
-        <ModalProductos categoriaNombre="Faldas" />
-        <ModalProductos categoriaNombre="Arnés" />
-        <ModalProductos categoriaNombre="Chokers" />
+
+        <ModalProductos categoriaNombre="Cuidado capilar" />
+        <ModalProductos categoriaNombre="Cuidado facial" />
+        <ModalProductos categoriaNombre="Cuidado corporal" />
+        <ModalProductos categoriaNombre="Cuidado personal" />
+        <ModalProductos categoriaNombre="Perfumes y fragancias" />
       </div>
       <Footer />
     </>
