@@ -140,7 +140,7 @@ export function AdministracionProductos() {
           >
             <option value="">Todas las categorías</option>
             <option>Poleras</option>
-            <option>Calzas</option>
+            <option>Cuidado Facial</option>
             <option>Faldas</option>
             <option>Chokers</option>
             <option>Arnés</option>
