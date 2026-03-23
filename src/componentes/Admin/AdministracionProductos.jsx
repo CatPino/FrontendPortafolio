@@ -139,11 +139,11 @@ export function AdministracionProductos() {
             className="form-select"
           >
             <option value="">Todas las categorías</option>
-            <option>Poleras</option>
+            <option>Cuidado Capilar</option>
             <option>Calzas</option>
             <option>Faldas</option>
             <option>Chokers</option>
-            <option>Arnés</option>
+            <option>Cuidado Corporal</option>
           </select>
         </div>
         <div className="col-md-3">
