@@ -135,8 +135,8 @@ export function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/calzas">
-                      Calzas
+                    <Link className="dropdown-item" to="/cuidado-facial">
+                      Cuidado Facial
                     </Link>
                   </li>
                   <li>
