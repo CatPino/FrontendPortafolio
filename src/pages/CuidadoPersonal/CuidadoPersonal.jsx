@@ -1,7 +1,7 @@
 import { Footer } from "../../componentes/Footer/Footer";
 import { ModalProductos } from "../../componentes/MostrarProductos/MostrarProductos";
 
-export function CuidadoCorporal() {
+export function CuidadoPersonal() {
   return (
     <>
       <div className="container my-5">

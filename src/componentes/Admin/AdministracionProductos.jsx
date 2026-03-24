@@ -143,7 +143,7 @@ export function AdministracionProductos() {
             <option>Cuidado Facial</option>
             <option>Faldas</option>
             <option>Chokers</option>
-            <option>Cuidado Corporal</option>
+            <option>Cuidado Personal</option>
           </select>
         </div>
         <div className="col-md-3">

@@ -4,7 +4,7 @@ import { Home } from './pages/Home/Home'
 import { CuidadoFacial } from './pages/CuidadoFacial/CuidadoFacial'
 import { Faldas } from './pages/Faldas/Faldas'
 import { Chokers } from './pages/Chokers/Chokers'
-import { CuidadoCorporal } from './pages/CuidadoCorporal/CuidadoCorporal'
+import { CuidadoPersonal } from './pages/CuidadoPersonal/CuidadoPersonal'
 import { CuidadoCapilar } from './pages/CuidadoCapilar/CuidadoCapilar'
 import { Contacto } from './pages/Contacto/Contacto'
 import { Productos } from './pages/Productos/Productos'
@@ -34,7 +34,7 @@ function App() {
         <Route path="/cuidado-facial" element={<CuidadoFacial />} />
         <Route path="/faldas" element={<Faldas />} />
         <Route path="/chokers" element={<Chokers />} />
-        <Route path="/cuidado-corporal" element={<CuidadoCorporal />} />
+        <Route path="/cuidado-personal" element={<CuidadoPersonal />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contacto" element={<Contacto />} />
