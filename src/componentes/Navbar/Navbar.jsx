@@ -145,8 +145,8 @@ export function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/Chokers">
-                      Chokers
+                    <Link className="dropdown-item" to="/fragancias">
+                      Perfumes y fragancias
                     </Link>
                   </li>
                   <li>

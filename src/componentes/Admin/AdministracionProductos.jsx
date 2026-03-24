@@ -142,7 +142,7 @@ export function AdministracionProductos() {
             <option>Cuidado Capilar</option>
             <option>Cuidado Facial</option>
             <option>Cuidado Corporal</option>
-            <option>Chokers</option>
+            <option>Perfumes y fragancias</option>
             <option>Cuidado Personal</option>
           </select>
         </div>
