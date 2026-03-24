@@ -140,8 +140,8 @@ export function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/faldas">
-                      Faldas
+                    <Link className="dropdown-item" to="/cuidado-corporal">
+                      Cuidado Corporal
                     </Link>
                   </li>
                   <li>
@@ -150,7 +150,7 @@ export function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/Cuidado-corporal">
+                    <Link className="dropdown-item" to="/Cuidado-personal">
                       Cuidado Personal
                     </Link>
                   </li>

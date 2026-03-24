@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
 import './App.css'
 import { Home } from './pages/Home/Home'
 import { CuidadoFacial } from './pages/CuidadoFacial/CuidadoFacial'
-import { Faldas } from './pages/Faldas/Faldas'
+import { CuidadoCorporal } from './pages/CuidadoCorporal/CuidadoCorporal'
 import { Chokers } from './pages/Chokers/Chokers'
 import { CuidadoPersonal } from './pages/CuidadoPersonal/CuidadoPersonal'
 import { CuidadoCapilar } from './pages/CuidadoCapilar/CuidadoCapilar'
@@ -32,7 +32,7 @@ function App() {
         <Route path="/productos" element={<Productos />} />
         <Route path="/Cuidado-Capilar" element={<CuidadoCapilar />} />
         <Route path="/cuidado-facial" element={<CuidadoFacial />} />
-        <Route path="/faldas" element={<Faldas />} />
+        <Route path="/cuidado-corporal" element={<CuidadoCorporal />} />
         <Route path="/chokers" element={<Chokers />} />
         <Route path="/cuidado-personal" element={<CuidadoPersonal />} />
         <Route path="/nosotros" element={<Nosotros />} />
