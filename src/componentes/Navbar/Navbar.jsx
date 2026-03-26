@@ -77,7 +77,7 @@ export function Navbar() {
           </button>
 
           <Link className="navbar-brand mx-auto order-0" to="/">
-            <img src="/img/Logo.png" alt="Logo" width="60" />
+            <img src="/img/LumiSkin.png" alt="Logo" width="120" />
           </Link>
 
           <div className="iconos-navbar d-flex align-items-center gap-3">

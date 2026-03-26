@@ -1,10 +1,13 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -40,3 +43,148 @@
 .read-the-docs {
   color: #888;
 }
+
+.topbar-personalizado {
+  background-color: #000000;
+}
+
+.redes-topbar a {
+  color: rgb(255, 255, 255) !important;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.redes-topbar a:hover {
+  color: #222 !important;
+}
+
+.mensaje-topbar {
+  color: rgb(255, 255, 255) !important;
+  font-weight: bold;
+}
+
+
+.footer {
+  background: linear-gradient(180deg, #f29db1 0%, #f5b1c3 100%);
+  padding: 40px 0;
+  color: #000000; /* marrón chocolate */
+}
+
+.footer-logo {
+  max-width: 180px;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.footer a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #f5c4dc; /* rosado fuerte */
+  text-decoration: underline;
+}
+
+.footer-img {
+  max-height: 70px;
+}
+
+.footer p {
+  color: #5a2a27;
+}
+
+.footer .row {
+  margin: 0;
+  justify-content: center;
+}
+.mi-navbar {
+  background: linear-gradient(180deg, #f29db1 0%, #f5b1c3 100%) !important;
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.mi-navbar .nav-link {
+  color: #5a2a27 !important;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.mi-navbar .nav-link:hover {
+  color: #d63384 !important;
+}
+
+.mi-navbar .navbar-brand {
+  color: #5a2a27 !important;
+}
+
+.mi-navbar .nav-link:hover {
+  color: #d63384 !important;
+}
+
+.mi-navbar .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconos-navbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.iconos-navbar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.iconos-navbar img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+.mi-navbar .navbar-brand img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.mi-navbar .dropdown-menu {
+  font-size: 1.2rem;
+  min-width: 300px;
+  border-radius: 12px;
+  padding: 10px 0;
+  border: 1px solid #e7b2c3;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.mi-navbar .dropdown-item {
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  color: #5a2a27 !important;
+  transition: all 0.2s ease;
+}
+
+.mi-navbar .dropdown-item:hover {
+  background-color: #f8c7d6 !important;
+  color: #d63384 !important;
+}
+
+.mi-navbar .dropdown-item:active {
+  background-color: #f29db1 !important;
+  color: #5a2a27 !important;
+}
+

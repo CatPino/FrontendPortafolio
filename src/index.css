@@ -96,28 +96,7 @@ p{
     border: none;
 
 }
-.mi-navbar {
-    padding-top: 1rem;    
-    padding-bottom: 1rem; 
-    min-height: 70px;     
-    background-color: #000000;
-    font-size: 25px;
-}
-.mi-navbar .nav-link {
-    color: rgb(255, 255, 255); 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.mi-navbar .nav-link:hover {
-    color: #d18cff;
-}
-.mi-navbar .dropdown-item {
-    color: #b32dd4;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 
-.mi-navbar .dropdown-item:hover {
-    color: #ad45d0;
-}
 .navbar button img {
     width: 30px;           
     height: 30px;          
@@ -136,7 +115,7 @@ p{
     filter: drop-shadow(0 0 5px white); 
 }
 .mi-footer {
-  background-color: #000000;
+  background-color: #a4358b;
   color: white;
   text-align: center;
   padding: 1rem;

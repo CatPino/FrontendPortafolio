@@ -13,6 +13,7 @@ import { Blogs } from './pages/Blogs/Blogs'
 import { Login } from './pages/Login/Login';
 import { Registro } from './pages/Registro/Registro';
 import { Navbar } from './componentes/Navbar/Navbar';
+import { TopBar } from './componentes/Topbar/Topbar';
 import { AdministracionProductos } from './componentes/Admin/AdministracionProductos';
 import { Usuario } from './componentes/Usuario/Usuario';
 import { MiPerfil } from './componentes/MiPerfil/MiPerfil'
@@ -26,7 +27,9 @@ function App() {
   return (
     <>
      <Router>
+      <TopBar/>
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Productos />} />
