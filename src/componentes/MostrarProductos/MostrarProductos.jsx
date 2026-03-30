@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useCarrito } from "../Carrito/ContextCarrito";
 import "../MostrarProductos/MostrarProductos.css";
 
 export function ModalProductos({ categoriaNombre }) {
   const { agregarProducto } = useCarrito();
-
+  const location = useLocation();
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -25,26 +26,39 @@ export function ModalProductos({ categoriaNombre }) {
         const dataCat = await resCat.json();
 
         setCategorias(dataCat);
+        const params = new URLSearchParams(location.search);
+        const textoBusqueda = params.get("search")?.toLowerCase().trim() || "";
 
-        if (categoriaNombre) {
-          const categoria = dataCat.find(
-            (c) => c.nombre.toLowerCase() === categoriaNombre.toLowerCase()
-          );
+       let productosFiltrados = dataProd;
 
-          if (categoria) {
-              const filtrados = dataProd.filter(
-          (p) =>
-            p.categoria?.id === categoria.id ||
-            p.categoriaId === categoria.id ||
-            p.categoria_id === categoria.id
-        );
-            setProductos(filtrados);
-          } else {
-            setProductos([]);
-          }
-        } else {
-          setProductos(dataProd);
-        }
+// Filtrar por categoría si viene categoriaNombre
+          if (categoriaNombre) {
+            const categoria = dataCat.find(
+              (c) => c.nombre.toLowerCase() === categoriaNombre.toLowerCase()
+            );
+
+            if (categoria) {
+              productosFiltrados = productosFiltrados.filter(
+                (p) =>
+                  p.categoria?.id === categoria.id ||
+                  p.categoriaId === categoria.id ||
+                  p.categoria_id === categoria.id
+              );
+            } else {
+              productosFiltrados = [];
+  }
+}
+
+// Filtrar por búsqueda si viene ?search=
+if (textoBusqueda) {
+  productosFiltrados = productosFiltrados.filter((p) =>
+    p.nombre.toLowerCase().includes(textoBusqueda) ||
+    p.descripcion.toLowerCase().includes(textoBusqueda)
+  );
+}
+
+setProductos(productosFiltrados);
+
       } catch (error) {
         console.error("❌ Error al cargar productos o categorías:", error);
       } finally {
@@ -53,7 +67,7 @@ export function ModalProductos({ categoriaNombre }) {
     }
 
     cargar();
-  }, [categoriaNombre]);
+  }, [categoriaNombre, location.search]);
 
   const mostrarMensaje = (texto, tipo = "ok") => {
     setMensaje({ texto, tipo });

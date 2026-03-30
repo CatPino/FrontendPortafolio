@@ -14,6 +14,7 @@ export function Navbar() {
 
   const [usuarioActivo, setUsuarioActivo] = useState(null);
   const [rol, setRol] = useState(null);
+  const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
     const cargarSesion = () => {
@@ -62,9 +63,22 @@ export function Navbar() {
     navigate("/");
   };
 
+  const handleBuscar = (e) => {
+    e.preventDefault();
+
+    const texto = busqueda.trim();
+
+    if (!texto) {
+      navigate("/productos");
+      return;
+    }
+
+    navigate(`/productos?search=${encodeURIComponent(texto)}`);
+    setBusqueda("");
+  };
+
   return (
     <>
-      {/* ======== NAVBAR ======== */}
       <nav className="navbar navbar-expand-sm mi-navbar position-relative">
         <div className="container-fluid">
           <button
@@ -72,16 +86,31 @@ export function Navbar() {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#Menu"
+            aria-controls="Menu"
+            aria-expanded="false"
+            aria-label="Abrir menú"
           >
             <img src="/img/Menu.png" alt="Menu" />
           </button>
 
-          <Link className="navbar-brand mx-auto order-0" to="/">
-            <img src="/img/LumiSkin.png" alt="Logo" width="120" />
-          </Link>
+          <Link className="navbar-brand order-0 me-3" to="/">
+              <img src="/img/LumiSkin.png" alt="Logo" width="120" />
+            </Link>
+
+            <form className="d-none d-lg-flex buscador-navbar ms-3 me-4" onSubmit={handleBuscar}>
+              <input
+                type="text"
+                className="form-control me-2"
+                placeholder="Buscar productos..."
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+              />
+              <button type="submit" className="btn btn-buscar-navbar">
+                Buscar
+              </button>
+            </form>
 
           <div className="iconos-navbar d-flex align-items-center gap-3">
-            {/* Carrito */}
             <button
               type="button"
               className="btn btn-transparent p-0 position-relative"
@@ -96,7 +125,6 @@ export function Navbar() {
               )}
             </button>
 
-            {/* Usuario */}
             <button
               type="button"
               className="btn btn-transparent p-0"
@@ -108,112 +136,117 @@ export function Navbar() {
           </div>
 
           <div className="collapse navbar-collapse" id="Menu">
-            <ul className="navbar-nav mx-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Home
-                </Link>
-              </li>
+            <div className="w-100">
+              <ul className="navbar-nav mx-auto mb-2 mb-lg-0 menu-principal-navbar">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    Home
+                  </Link>
+                </li>
 
-              <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="/productos"
-                  data-bs-toggle="dropdown"
-                >
-                  Productos
-                </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" to="/productos">
-                      Todos los productos
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/Cuidado-Capilar">
-                      Cuidado Capilar
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/cuidado-facial">
-                      Cuidado Facial
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/cuidado-corporal">
-                      Cuidado Corporal
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/fragancias">
-                      Perfumes y fragancias
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/Cuidado-personal">
-                      Cuidado Personal
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="nav-item">
-                <Link className="nav-link" to="/nosotros">
-                  Nosotros
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/blogs">
-                  Blogs
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contacto">
-                  Contacto
-                </Link>
-              </li>
-
-              {(rol === "admin" || rol === "administrador") && (
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"
-                    to="#"
+                    to="/productos"
                     data-bs-toggle="dropdown"
                   >
-                    Administración
+                    Productos
                   </Link>
-
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to="/inventario">
-                        Inventario
+                      <Link className="dropdown-item" to="/productos">
+                        Todos los productos
                       </Link>
                     </li>
-
                     <li>
-                      <Link className="dropdown-item" to="/usuario">
-                        Usuarios
+                      <Link className="dropdown-item" to="/Cuidado-Capilar">
+                        Cuidado Capilar
                       </Link>
                     </li>
-
                     <li>
-                      <Link className="dropdown-item" to="/ordenes">
-                        Órdenes
+                      <Link className="dropdown-item" to="/cuidado-facial">
+                        Cuidado Facial
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/cuidado-corporal">
+                        Cuidado Corporal
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/fragancias">
+                        Perfumes y fragancias
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/Cuidado-personal">
+                        Cuidado Personal
                       </Link>
                     </li>
                   </ul>
                 </li>
-              )}
 
-                            
-            </ul>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/nosotros">
+                    Nosotros
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/blogs">
+                    Blogs
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/contacto">
+                    Contacto
+                  </Link>
+                </li>
+
+                {(rol === "admin" || rol === "administrador") && (
+                  <li className="nav-item dropdown">
+                    <Link
+                      className="nav-link dropdown-toggle"
+                      to="#"
+                      data-bs-toggle="dropdown"
+                    >
+                      Administración
+                    </Link>
+
+                    <ul className="dropdown-menu">
+                      <li>
+                        <Link className="dropdown-item" to="/inventario">
+                          Inventario
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link className="dropdown-item" to="/usuario">
+                          Usuarios
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link className="dropdown-item" to="/ordenes">
+                          Órdenes
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                )}
+              </ul>
+
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* ============ MODAL CARRITO ============ */}
       <div className="modal fade" id="carritoModal" tabIndex="-1">
-        <div className="modal-dialog modal-lg modal-dialog-centered" style={{ maxWidth: "600px" }}>
+        <div
+          className="modal-dialog modal-lg modal-dialog-centered"
+          style={{ maxWidth: "600px" }}
+        >
           <div className="modal-content">
             <div className="modal-header">
               <h2 className="modal-title">Carrito de Compras</h2>
@@ -230,7 +263,6 @@ export function Navbar() {
                       key={item.id}
                       className="list-group-item d-flex justify-content-between align-items-center"
                     >
-                      {/* Imagen */}
                       <div className="d-flex align-items-center gap-3">
                         {item.imagenUrl && (
                           <img
@@ -244,7 +276,6 @@ export function Navbar() {
                           />
                         )}
 
-                        {/* Nombre + botones */}
                         <div className="flex-grow-1">
                           <strong>{item.nombre}</strong>
 
@@ -255,10 +286,7 @@ export function Navbar() {
                             <button
                               className="btn btn-sm btn-outline-secondary"
                               onClick={() =>
-                                actualizarCantidad(
-                                  item.id,
-                                  item.cantidad - 1
-                                )
+                                actualizarCantidad(item.id, item.cantidad - 1)
                               }
                               disabled={item.cantidad <= 1}
                             >
@@ -270,10 +298,7 @@ export function Navbar() {
                             <button
                               className="btn btn-sm btn-outline-secondary"
                               onClick={() =>
-                                actualizarCantidad(
-                                  item.id,
-                                  item.cantidad + 1
-                                )
+                                actualizarCantidad(item.id, item.cantidad + 1)
                               }
                             >
                               +
@@ -313,22 +338,21 @@ export function Navbar() {
                 Cerrar
               </button>
               <button
-              className="btn button1"
-              disabled={carrito.length === 0}
-              onClick={() => {
-                const modal = document.getElementById("carritoModal");
-                const instancia = window.bootstrap.Modal.getInstance(modal);
-                if (instancia) instancia.hide(); 
-                navigate("/pago"); 
-              }}
-            >
-              Ir al pago
-            </button>
+                className="btn button1"
+                disabled={carrito.length === 0}
+                onClick={() => {
+                  const modal = document.getElementById("carritoModal");
+                  const instancia = window.bootstrap.Modal.getInstance(modal);
+                  if (instancia) instancia.hide();
+                  navigate("/pago");
+                }}
+              >
+                Ir al pago
+              </button>
             </div>
           </div>
         </div>
       </div>
-
 
       <div className="modal fade" id="usuarioModal" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
@@ -394,10 +418,7 @@ export function Navbar() {
                     >
                       Ir a comprar
                     </button>
-                    <button
-                      className="btn button2"
-                      onClick={handleLogout}
-                    >
+                    <button className="btn button2" onClick={handleLogout}>
                       Cerrar sesión
                     </button>
                   </div>

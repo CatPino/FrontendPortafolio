@@ -20,6 +20,7 @@ import { MiPerfil } from './componentes/MiPerfil/MiPerfil'
 import Pago from './componentes/Pago/Pago'
 import CompraExitosa from './compra-exitosa/compra-exitosa'
 import Ordenes from './componentes/Ordenes/Ordenes'
+import { ModalProductos } from'./componentes/MostrarProductos/MostrarProductos'
 
 function App() {
   
@@ -32,7 +33,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Productos />} />
+        <Route path="/productos" element={<ModalProductos />} />
         <Route path="/Cuidado-Capilar" element={<CuidadoCapilar />} />
         <Route path="/cuidado-facial" element={<CuidadoFacial />} />
         <Route path="/cuidado-corporal" element={<CuidadoCorporal />} />
