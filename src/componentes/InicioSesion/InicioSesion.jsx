@@ -106,7 +106,7 @@ export function InicioSesion() {
 
       // Guardar correctamente
       localStorage.setItem("usuario", JSON.stringify(usuarioGuardado));
-      localStorage.setItem("token", data.token); // 🔥 NECESARIO PARA MiPerfil
+      localStorage.setItem("token", data.token); 
       localStorage.setItem("rolUsuario", data.rol?.toLowerCase() || "cliente");
       localStorage.setItem("nombreUsuario", data.nombre);
       localStorage.setItem("mostrarModalUsuario", "true");

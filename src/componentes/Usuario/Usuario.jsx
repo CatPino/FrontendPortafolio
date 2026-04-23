@@ -12,27 +12,44 @@ export function Usuario() {
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
   async function cargarUsuarios() {
-    setCargando(true);
-    setMensaje(null);
-    try {
-      const res = await fetch("http://localhost:8082/api/usuarios");
-      if (!res.ok) throw new Error("Error al obtener usuarios");
-      const data = await res.json();
-      setUsuarios(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error("Error al cargar usuarios:", error);
-      setMensaje({
-        tipo: "error",
-        texto: "No se pudieron cargar los usuarios.",
-      });
-    } finally {
-      setCargando(false);
-    }
+  setCargando(true);
+  setMensaje(null);
+  try {
+    const token = localStorage.getItem("token"); 
+    console.log("TOKEN:", token);
+    const res = await fetch("http://localhost:8082/api/usuarios", {
+      headers: {
+        "Authorization": `Bearer ${token}` 
+      }
+    });
+    if (!res.ok) throw new Error("Error al obtener usuarios");
+    const data = await res.json();
+    setUsuarios(Array.isArray(data) ? data : []);
+  } catch (error) {
+    console.error("Error al cargar usuarios:", error);
+    setMensaje({
+      tipo: "error",
+      texto: "No se pudieron cargar los usuarios.",
+    });
+  } finally {
+    setCargando(false);
   }
+}
+fetch("http://localhost:8082/api/usuarios", {
+  headers: {
+    "Authorization": "Bearer " + localStorage.getItem("token")
+  }
+}).then(r => console.log("Status:", r.status))
 
   async function cargarRoles() {
     try {
-      const res = await fetch("http://localhost:8082/api/roles");
+      const token = localStorage.getItem("token");
+      const res = await fetch("http://localhost:8082/api/roles", {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      });
       if (!res.ok) throw new Error("Error al obtener roles");
       const data = await res.json();
       setRoles(data);
@@ -40,11 +57,16 @@ export function Usuario() {
       console.error("Error al cargar roles:", error);
     }
   }
+  
 
   useEffect(() => {
+  const token = localStorage.getItem("token");
+  console.log("TOKEN en useEffect:", token);
+  if (token) {
     cargarUsuarios();
     cargarRoles();
-  }, []);
+  }
+}, []);
 
   const filtrados = useMemo(() => {
     const texto = filtroTexto.toLowerCase().trim();
